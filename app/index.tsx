@@ -26,8 +26,11 @@
 // }
 
 import React, { Component } from "react";
-import { Image, Text, View } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 
+const handleButton = () => {
+    alert("Hallooo");
+};
 export default class index extends Component {
     render() {
         return (
@@ -43,6 +46,7 @@ export default class index extends Component {
                 </Text>
 
                 <Image style={{ height : 100, width : 300 }} source={ require('../assets/images/jam.jpg') }></Image>
+                <Button title="Colekk akuu" onPress={handleButton} />
             </View>
         );
     }

@@ -26,7 +26,7 @@
 // }
 
 import React, { Component } from "react";
-import { Button, Image, Text, View } from "react-native";
+import { Button, Image, Text, View, TouchableOpacity } from "react-native";
 
 const handleButton = () => {
     alert("Hallooo");
@@ -35,7 +35,7 @@ export default class index extends Component {
     render() {
         return (
             <View>
-                <Text style={{ fontSize : 50 }}>
+                <Text style={{ fontSize: 50 }}>
                     {" "}
                     <Text style={{ fontWeight: "bold" }}>Selamat</Text> datang
                     <Text style={{ fontStyle: "italic" }}>
@@ -45,8 +45,11 @@ export default class index extends Component {
                     component{" "}
                 </Text>
 
-                <Image style={{ height : 100, width : 300 }} source={ require('../assets/images/jam.jpg') }></Image>
+                <Image
+                    style={{ height: 100, width: 300 }}
+                    source={require("../assets/images/jam.jpg")}></Image>
                 <Button title="Colekk akuu" onPress={handleButton} />
+                <TouchableOpacity><Text>Klik akuu</Text></TouchableOpacity>
             </View>
         );
     }

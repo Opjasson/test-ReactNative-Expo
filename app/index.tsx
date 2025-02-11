@@ -26,7 +26,8 @@
 // }
 
 import React, { Component } from "react";
-import { Button, Image, Text, View, TouchableOpacity } from "react-native";
+import { Button, Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
+
 
 const handleButton = () => {
     alert("Hallooo");
@@ -35,7 +36,7 @@ export default class index extends Component {
     render() {
         return (
             <View>
-                <Text style={{ fontSize: 50 }}>
+                <Text style={style.tulisan}>
                     {" "}
                     <Text style={{ fontWeight: "bold" }}>Selamat</Text> datang
                     <Text style={{ fontStyle: "italic" }}>
@@ -54,3 +55,10 @@ export default class index extends Component {
         );
     }
 }
+
+const style = StyleSheet.create({
+    tulisan : {
+        fontSize : 50,
+        color : 'red'
+    }
+})

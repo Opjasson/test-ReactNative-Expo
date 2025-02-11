@@ -29,41 +29,59 @@ import React, { Component } from "react";
 import { Button, Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
 
 
-const handleButton = () => {
-    alert("Hallooo");
-};
-export default class index extends Component {
-    render() {
-        return (
-            <View>
-                <Text style={style.tulisan}>
-                    {" "}
-                    <Text style={style.tulisanTebal}>Selamat</Text> datang
-                    <Text style={style.tulisanMiring}>
-                        {" "}
-                        ditutorial
-                    </Text>{" "}
-                    component{" "}
-                </Text>
+// const handleButton = () => {
+//     alert("Hallooo");
+// };
+// export default class index extends Component {
+//     render() {
+//         return (
+//             <View>
+//                 <Text style={style.tulisan}>
+//                     {" "}
+//                     <Text style={style.tulisanTebal}>Selamat</Text> datang
+//                     <Text style={style.tulisanMiring}>
+//                         {" "}
+//                         ditutorial
+//                     </Text>{" "}
+//                     component{" "}
+//                 </Text>
 
-                <Image
-                    style={{ height: 100, width: 300 }}
-                    source={require("../assets/images/jam.jpg")}></Image>
-                <Button title="Colekk akuu" onPress={handleButton} />
-                <TouchableOpacity><Text>Klik akuu</Text></TouchableOpacity>
-            </View>
-        );
-    }
+//                 <Image
+//                     style={{ height: 100, width: 300 }}
+//                     source={require("../assets/images/jam.jpg")}></Image>
+//                 <Button title="Colekk akuu" onPress={handleButton} />
+//                 <TouchableOpacity><Text>Klik akuu</Text></TouchableOpacity>
+//             </View>
+//         );
+//     }
+// }
+
+// const style = StyleSheet.create({
+//     tulisan: {
+//         fontSize: 50,
+//     },
+//     tulisanTebal: {
+//         fontWeight: "bold",
+//     },
+//     tulisanMiring: {
+//         fontStyle: "italic",
+//     },
+// });
+
+// ----------------- Flex box
+
+export default class index extends Component {
+  render() {
+    return (
+      <View>
+        <View></View>
+        <View></View>
+        <View></View>
+      </View>
+    )
+  }
 }
 
-const style = StyleSheet.create({
-    tulisan : {
-        fontSize : 50,
-    },
-    tulisanTebal : {
-        fontWeight : 'bold'
-    },
-    tulisanMiring : {
-        fontStyle : 'italic'
-    }
-})
+
+
+

@@ -26,8 +26,14 @@
 // }
 
 import React, { Component } from "react";
-import { Button, Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
-
+import {
+    Button,
+    Image,
+    Text,
+    View,
+    TouchableOpacity,
+    StyleSheet,
+} from "react-native";
 
 // const handleButton = () => {
 //     alert("Hallooo");
@@ -71,17 +77,34 @@ import { Button, Image, Text, View, TouchableOpacity, StyleSheet } from "react-n
 // ----------------- Flex box
 
 export default class index extends Component {
-  render() {
-    return (
-      <View>
-        <View></View>
-        <View></View>
-        <View></View>
-      </View>
-    )
-  }
+    render() {
+        return (
+            <View style={style.area}>
+                <View style={style.kotakMerah}></View>
+                <View style={style.kotakHijau}></View>
+                <View style={style.kotakBiru}></View>
+            </View>
+        );
+    }
 }
 
-
-
-
+const style = StyleSheet.create({
+    area: {
+        flexDirection : 'row-reverse'
+    },
+    kotakMerah: {
+        width: 100,
+        height: 100,
+        backgroundColor: "red",
+    },
+    kotakHijau: {
+        width: 100,
+        height: 100,
+        backgroundColor: "green",
+    },
+    kotakBiru: {
+        width: 100,
+        height: 100,
+        backgroundColor: "blue",
+    },
+});

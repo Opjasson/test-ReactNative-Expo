@@ -38,8 +38,8 @@ export default class index extends Component {
             <View>
                 <Text style={style.tulisan}>
                     {" "}
-                    <Text style={{ fontWeight: "bold" }}>Selamat</Text> datang
-                    <Text style={{ fontStyle: "italic" }}>
+                    <Text style={style.tulisanTebal}>Selamat</Text> datang
+                    <Text style={style.tulisanMiring}>
                         {" "}
                         ditutorial
                     </Text>{" "}
@@ -59,6 +59,11 @@ export default class index extends Component {
 const style = StyleSheet.create({
     tulisan : {
         fontSize : 50,
-        color : 'red'
+    },
+    tulisanTebal : {
+        fontWeight : 'bold'
+    },
+    tulisanMiring : {
+        fontStyle : 'italic'
     }
 })

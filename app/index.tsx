@@ -387,44 +387,101 @@
 
 // ------------ Fetch API
 
-import React, { Component } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+// import React, { Component } from "react";
+// import { Text, View, StyleSheet, Button } from "react-native";
 
-export class index extends Component {
-    state = {
-        nama: "",
-        email: "-",
-    };
+// export class index extends Component {
+//     state = {
+//         nama: "",
+//         email: "-",
+//     };
 
-    findAccount = () => {
-        const url = "https://reqres.in/api/users";
+//     findAccount = () => {
+//         const url = "https://reqres.in/api/users";
 
-        fetch(url)
-            .then((data) => data.json())
-            .then((hasil) => {
-                console.log(hasil.data[0].first_name);
-                this.setState({ nama: hasil.data[0].first_name });
-                this.setState({ email: hasil.data[0].email });
-            });
-    };
-    render() {
-        return (
-            <View>
-                <Text style={style.text}>
-                    {" "}
-                    Halooo nama saya : {this.state.nama}{" "}
-                </Text>{" "}
-                <Text style={style.text}> Email saya : {this.state.email} </Text>{" "}
-                <Button onPress={this.findAccount} title="Cari" />
-            </View>
-        );
-    }
-}
+//         fetch(url)
+//             .then((data) => data.json())
+//             .then((hasil) => {
+//                 console.log(hasil.data[0].first_name);
+//                 this.setState({ nama: hasil.data[0].first_name });
+//                 this.setState({ email: hasil.data[0].email });
+//             });
+//     };
+//     render() {
+//         return (
+//             <View>
+//                 <Text style={style.text}>
+//                     {" "}
+//                     Halooo nama saya : {this.state.nama}{" "}
+//                 </Text>{" "}
+//                 <Text style={style.text}> Email saya : {this.state.email} </Text>{" "}
+//                 <Button onPress={this.findAccount} title="Cari" />
+//             </View>
+//         );
+//     }
+// }
 
-const style = StyleSheet.create({
-    text: {
-        fontSize: 20,
-    },
-});
+// const style = StyleSheet.create({
+//     text: {
+//         fontSize: 20,
+//     },
+// });
 
-export default index;
+// export default index;
+
+// --------------- react Navigation
+// In App.js in a new project
+
+// import * as React from "react";
+// import { View, Text, Button } from "react-native";
+// import {
+//     NavigationContainer,
+//     NavigationIndependentTree,
+//     useNavigation,
+//     createStaticNavigation
+// } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+// function HomeScreen() {
+//     const navigation = useNavigation();
+//     return (
+//         <View
+//             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//             <Text>Home Screen</Text>
+//             <Button onPress={() => navigation.navigate('Detail')} title="Goto Detail"/>
+//         </View>
+//     );
+// }
+
+
+
+// function DetailScreen() {
+//     return (
+//         <View
+//             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//             <Text>DetailScreen</Text>
+//         </View>
+//     );
+// }
+
+// const Stack = createNativeStackNavigator();
+
+// function RootStack() {
+//     return (
+//         <Stack.Navigator>
+//             <Stack.Screen name="Home" component={HomeScreen} />
+//             <Stack.Screen name="Detail" component={DetailScreen} />
+//         </Stack.Navigator>
+//     );
+// }
+
+// export default function App() {
+//     return (
+//         <NavigationIndependentTree>
+//             <NavigationContainer>
+//                 <RootStack />
+//             </NavigationContainer>
+//         </NavigationIndependentTree>
+//     );
+// }

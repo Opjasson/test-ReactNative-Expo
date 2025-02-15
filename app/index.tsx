@@ -25,15 +25,15 @@
 //     );
 // }
 
-import React, { Component } from "react";
-import {
-    Button,
-    Image,
-    Text,
-    View,
-    TouchableOpacity,
-    StyleSheet,
-} from "react-native";
+// import React, { Component } from "react";
+// import {
+//     Button,
+//     Image,
+//     Text,
+//     View,
+//     TouchableOpacity,
+//     StyleSheet,
+// } from "react-native";
 
 // const handleButton = () => {
 //     alert("Hallooo");
@@ -76,39 +76,67 @@ import {
 
 // ----------------- Flex box
 
-export default class index extends Component {
-    render() {
-        return (
-            <View style={style.area}>
-                <View style={style.kotakMerah}></View>
-                <View style={style.kotakHijau}></View>
-                <View style={style.kotakBiru}></View>
-            </View>
-        );
+// export default class index extends Component {
+//     render() {
+//         return (
+//             <View style={style.area}>
+//                 <View style={style.kotakMerah}></View>
+//                 <View style={style.kotakHijau}></View>
+//                 <View style={style.kotakBiru}></View>
+//             </View>
+//         );
+//     }
+// }
+
+// const style = StyleSheet.create({
+//     area: {
+//         flexDirection : 'column',
+//         justifyContent : 'space-between',
+//         flex : 1,
+//         alignItems : 'flex-start'
+        
+//     },
+//     kotakMerah: {
+//         width: 100,
+//         height: 100,
+//         backgroundColor: "red",
+//     },
+//     kotakHijau: {
+//         width: 100,
+//         height: 100,
+//         backgroundColor: "green",
+//     },
+//     kotakBiru: {
+//         width: 100,
+//         height: 100,
+//         backgroundColor: "blue",
+//     },
+// });
+
+// --------------- Menampilkan list 
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+
+export class index extends Component {
+    state = {
+        namaHewan : [
+            {id : 0, nama : 'Kucing'},
+            {id : 1, nama : 'Ikan'},
+            {id : 2, nama : 'Kambing'},
+            {id : 3, nama : 'Gajah'}
+        ]
     }
+  render() {
+    return (
+      <View>
+        {
+            this.state.namaHewan.map((item, index) => (
+                <Text key={index}>{item.nama}</Text>
+            ))
+        }
+      </View>
+    )
+  }
 }
 
-const style = StyleSheet.create({
-    area: {
-        flexDirection : 'column',
-        justifyContent : 'space-between',
-        flex : 1,
-        alignItems : 'flex-start'
-        
-    },
-    kotakMerah: {
-        width: 100,
-        height: 100,
-        backgroundColor: "red",
-    },
-    kotakHijau: {
-        width: 100,
-        height: 100,
-        backgroundColor: "green",
-    },
-    kotakBiru: {
-        width: 100,
-        height: 100,
-        backgroundColor: "blue",
-    },
-});
+export default index

@@ -342,44 +342,88 @@
 
 // ------------ ScrollView Component
 
+// import React, { Component } from "react";
+// import { Text, View, StyleSheet, ScrollView } from "react-native";
+
+// export class index extends Component {
+//     state = {
+//         jenisMakanan: [
+//             { id: 1, nama: "Nasi Goreng" },
+//             { id: 2, nama: "Sate Ayam" },
+//             { id: 3, nama: "Gado-Gado" },
+//             { id: 4, nama: "Soto Betawi" },
+//             { id: 5, nama: "Bakso Malang" },
+//             { id: 6, nama: "Martabak Telor" },
+//             { id: 7, nama: "Kue Lapis" },
+//             { id: 8, nama: "Es Teler" },
+//             { id: 9, nama: "Rendang Padang" },
+//             { id: 10, nama: "Krupuk Udang" },
+//         ],
+//     };
+//     render() {
+//         return (
+//             <ScrollView>
+//                 <View>
+//                     {this.state.jenisMakanan.map((item) => (
+//                         <Text style={styles.text} key={item.id}>
+//                             {item.nama}
+//                         </Text>
+//                     ))}
+//                 </View>
+//             </ScrollView>
+//         );
+//     }
+// }
+
+// const styles = StyleSheet.create({
+//     text: {
+//         fontSize: 50,
+//         backgroundColor: "red",
+//         marginBottom: 10,
+//     },
+// });
+
+// export default index;
+
+// ------------ Fetch API
+
 import React, { Component } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { Text, View, StyleSheet, Button } from "react-native";
 
 export class index extends Component {
     state = {
-        jenisMakanan: [
-            { id: 1, nama: "Nasi Goreng" },
-            { id: 2, nama: "Sate Ayam" },
-            { id: 3, nama: "Gado-Gado" },
-            { id: 4, nama: "Soto Betawi" },
-            { id: 5, nama: "Bakso Malang" },
-            { id: 6, nama: "Martabak Telor" },
-            { id: 7, nama: "Kue Lapis" },
-            { id: 8, nama: "Es Teler" },
-            { id: 9, nama: "Rendang Padang" },
-            { id: 10, nama: "Krupuk Udang" },
-        ],
+        nama: "",
+        email: "-",
+    };
+
+    findAccount = () => {
+        const url = "https://reqres.in/api/users";
+
+        fetch(url)
+            .then((data) => data.json())
+            .then((hasil) => {
+                console.log(hasil.data[0].first_name);
+                this.setState({ nama: hasil.data[0].first_name });
+                this.setState({ email: hasil.data[0].email });
+            });
     };
     render() {
         return (
-            <ScrollView>
-                <View>
-                    {this.state.jenisMakanan.map((item) => (
-                        <Text style={styles.text} key={item.id}>
-                            {item.nama}
-                        </Text>
-                    ))}
-                </View>
-            </ScrollView>
+            <View>
+                <Text style={style.text}>
+                    {" "}
+                    Halooo nama saya : {this.state.nama}{" "}
+                </Text>{" "}
+                <Text style={style.text}> Email saya : {this.state.email} </Text>{" "}
+                <Button onPress={this.findAccount} title="Cari" />
+            </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     text: {
-        fontSize: 50,
-        backgroundColor: "red",
-        marginBottom: 10,
+        fontSize: 20,
     },
 });
 

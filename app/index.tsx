@@ -208,34 +208,98 @@
 
 // -------------------- state pada functional komponen
 
-import { Text, View, StyleSheet, Button } from "react-native";
-import React, { useState } from "react";
+// import { Text, View, StyleSheet, Button } from "react-native";
+// import React, { useState } from "react";
 
-export default function index() {
-    const [nama, setNama] = useState("jasson");
+// export default function index() {
+//     const [nama, setNama] = useState("jasson");
 
-    const handleButton = () => {
-        setNama("azmi");
-    };
+//     const handleButton = () => {
+//         setNama("azmi");
+//     };
+//     return (
+//         <View style={style.viewStyle}>
+//             <Text style={style.textStyle}>{nama}</Text>
+//             <Button onPress={handleButton} title="ubah" />
+//         </View>
+//     );
+// }
+
+// const style = StyleSheet.create({
+//     textStyle: {
+//         color: "red",
+//         fontSize: 20,
+//         fontWeight: "bold",
+//     },
+//     viewStyle: {
+//         flexDirection: "column",
+//         backgroundColor: "green",
+//         justifyContent: "center",
+//         flex: 1,
+//         alignItems: "center",
+//     },
+// });
+
+import React, { Component } from 'react'
+import { Text, View, StyleSheet } from 'react-native'
+
+interface Dataprops {
+    nama : string,
+    alamat : string,
+    usia : number
+}
+
+
+export class Data extends Component<Dataprops> {
+  render() {
     return (
-        <View style={style.viewStyle}>
-            <Text style={style.textStyle}>{nama}</Text>
-            <Button onPress={handleButton} title="ubah" />
-        </View>
-    );
+      <View style={style.area}>
+        <Text style={style.text}> Nama : {this.props.nama} </Text>
+        <Text style={style.text}> Alamat : {this.props.alamat} </Text>
+        <Text style={style.text}> Usia : {this.props.usia} </Text>
+      </View>
+    )
+  }
 }
 
 const style = StyleSheet.create({
-    textStyle: {
-        color: "red",
+    area: {
+        height: 90,
+        backgroundColor: "gray",
+    },
+    text: {
         fontSize: 20,
         fontWeight: "bold",
     },
-    viewStyle: {
-        flexDirection: "column",
-        backgroundColor: "green",
-        justifyContent: "center",
-        flex: 1,
-        alignItems: "center",
+    textInti: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "white",
+        textAlign : 'center'
+    },
+    view: {
+        height: 90,
+        backgroundColor: "blue",
     },
 });
+
+
+
+
+export class index extends Component {
+  render() {
+    return (
+      <View style={style.view}>
+        <Text style={style.textInti}>Data diri mahasiswa</Text>
+        <Data nama='jasson' alamat='mejasem' usia={21} />
+        <Data nama='robi' alamat='mejasem' usia={21} />
+        <Data nama='toni' alamat='mejasem' usia={21} />
+      </View>
+    )
+  }
+}
+
+
+
+export default index
+

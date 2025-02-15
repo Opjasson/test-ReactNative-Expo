@@ -299,42 +299,87 @@
 
 // ------------ TextInput
 
+// import React, { Component } from "react";
+// import { Text, View, StyleSheet, TextInput } from "react-native";
+
+// export class index extends Component {
+//     state = {
+//         nama : ''
+//     }
+//     render() {
+//         return (
+//             <View style={style.area}>
+//                 <TextInput
+//                     style={style.textInput}
+//                     placeholder="Masukan nama"
+//                     keyboardType="default"
+//                     onChangeText={(text) => this.setState({nama : text})}
+//                 />
+//                 <Text style={style.text}> Halooo nama saya : {this.state.nama} </Text>
+//             </View>
+//         );
+//     }
+// }
+
+// const style = StyleSheet.create({
+//     text: {
+//         fontSize: 20,
+//         textAlign: "center",
+//     },
+//     area: {
+//         flexDirection: "column",
+//         marginTop: 200,
+//         backgroundColor: "#fff",
+//         alignItems: "center",
+//     },
+//     textInput: {
+//         borderWidth: 1,
+//         width: "80%",
+//     },
+// });
+
+// export default index;
+
+// ------------ ScrollView Component
+
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 
 export class index extends Component {
     state = {
-        nama : ''
-    }
+        jenisMakanan: [
+            { id: 1, nama: "Nasi Goreng" },
+            { id: 2, nama: "Sate Ayam" },
+            { id: 3, nama: "Gado-Gado" },
+            { id: 4, nama: "Soto Betawi" },
+            { id: 5, nama: "Bakso Malang" },
+            { id: 6, nama: "Martabak Telor" },
+            { id: 7, nama: "Kue Lapis" },
+            { id: 8, nama: "Es Teler" },
+            { id: 9, nama: "Rendang Padang" },
+            { id: 10, nama: "Krupuk Udang" },
+        ],
+    };
     render() {
         return (
-            <View style={style.area}>
-                <TextInput
-                    style={style.textInput}
-                    placeholder="Masukan nama"
-                    keyboardType="default"
-                    onChangeText={(text) => this.setState({nama : text})}
-                />
-                <Text style={style.text}> Halooo nama saya : {this.state.nama} </Text>
-            </View>
+            <ScrollView>
+                <View>
+                    {this.state.jenisMakanan.map((item) => (
+                        <Text style={styles.text} key={item.id}>
+                            {item.nama}
+                        </Text>
+                    ))}
+                </View>
+            </ScrollView>
         );
     }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     text: {
-        fontSize: 20,
-        textAlign: "center",
-    },
-    area: {
-        flexDirection: "column",
-        marginTop: 200,
-        backgroundColor: "#fff",
-        alignItems: "center",
-    },
-    textInput: {
-        borderWidth: 1,
-        width: "80%",
+        fontSize: 50,
+        backgroundColor: "red",
+        marginBottom: 10,
     },
 });
 

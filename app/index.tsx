@@ -113,9 +113,9 @@
 //     },
 // });
 
-// --------------- Menampilkan list 
+// --------------- Menampilkan list dan penggunaan state
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 export class index extends Component {
     state = {
@@ -126,17 +126,34 @@ export class index extends Component {
             {id : 3, nama : 'Gajah'}
         ]
     }
+
+    klik = (namaHewan : string) => {
+        alert(`Kamu pilih ${namaHewan}`)
+    }
   render() {
     return (
       <View>
         {
             this.state.namaHewan.map((item, index) => (
-                <Text key={index}>{item.nama}</Text>
+                <TouchableOpacity onPress={() => this.klik(item.nama)}>
+                    <Text style= {style.textNamaHewan} key={index}>{item.nama}</Text>
+                </TouchableOpacity>
             ))
         }
       </View>
     )
   }
 }
+
+const style = StyleSheet.create({
+    textNamaHewan : {
+        fontSize : 30,
+        fontWeight : 'bold',
+        backgroundColor : 'green',
+        marginBottom : 10,
+        color : 'white'
+    }
+})
+
 
 export default index

@@ -240,66 +240,102 @@
 //     },
 // });
 
-import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+// import React, { Component } from 'react'
+// import { Text, View, StyleSheet } from 'react-native'
 
-interface Dataprops {
-    nama : string,
-    alamat : string,
-    usia : number
-}
+// interface Dataprops {
+//     nama : string,
+//     alamat : string,
+//     usia : number
+// }
 
+// export class Data extends Component<Dataprops> {
+//   render() {
+//     return (
+//       <View style={style.area}>
+//         <Text style={style.text}> Nama : {this.props.nama} </Text>
+//         <Text style={style.text}> Alamat : {this.props.alamat} </Text>
+//         <Text style={style.text}> Usia : {this.props.usia} </Text>
+//       </View>
+//     )
+//   }
+// }
 
-export class Data extends Component<Dataprops> {
-  render() {
-    return (
-      <View style={style.area}>
-        <Text style={style.text}> Nama : {this.props.nama} </Text>
-        <Text style={style.text}> Alamat : {this.props.alamat} </Text>
-        <Text style={style.text}> Usia : {this.props.usia} </Text>
-      </View>
-    )
-  }
+// const style = StyleSheet.create({
+//     area: {
+//         height: 90,
+//         backgroundColor: "gray",
+//     },
+//     text: {
+//         fontSize: 20,
+//         fontWeight: "bold",
+//     },
+//     textInti: {
+//         fontSize: 20,
+//         fontWeight: "bold",
+//         color: "white",
+//         textAlign : 'center'
+//     },
+//     view: {
+//         height: 90,
+//         backgroundColor: "blue",
+//     },
+// });
+
+// export class index extends Component {
+//   render() {
+//     return (
+//       <View style={style.view}>
+//         <Text style={style.textInti}>Data diri mahasiswa</Text>
+//         <Data nama='jasson' alamat='mejasem' usia={21} />
+//         <Data nama='robi' alamat='mejasem' usia={21} />
+//         <Data nama='toni' alamat='mejasem' usia={21} />
+//       </View>
+//     )
+//   }
+// }
+
+// export default index
+
+// ------------ TextInput
+
+import React, { Component } from "react";
+import { Text, View, StyleSheet, TextInput } from "react-native";
+
+export class index extends Component {
+    state = {
+        nama : ''
+    }
+    render() {
+        return (
+            <View style={style.area}>
+                <TextInput
+                    style={style.textInput}
+                    placeholder="Masukan nama"
+                    keyboardType="default"
+                    onChangeText={(text) => this.setState({nama : text})}
+                />
+                <Text style={style.text}> Halooo nama saya : {this.state.nama} </Text>
+            </View>
+        );
+    }
 }
 
 const style = StyleSheet.create({
-    area: {
-        height: 90,
-        backgroundColor: "gray",
-    },
     text: {
         fontSize: 20,
-        fontWeight: "bold",
+        textAlign: "center",
     },
-    textInti: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "white",
-        textAlign : 'center'
+    area: {
+        flexDirection: "column",
+        marginTop: 200,
+        backgroundColor: "#fff",
+        alignItems: "center",
     },
-    view: {
-        height: 90,
-        backgroundColor: "blue",
+    textInput: {
+        borderWidth: 1,
+        width: "80%",
     },
 });
 
-
-
-
-export class index extends Component {
-  render() {
-    return (
-      <View style={style.view}>
-        <Text style={style.textInti}>Data diri mahasiswa</Text>
-        <Data nama='jasson' alamat='mejasem' usia={21} />
-        <Data nama='robi' alamat='mejasem' usia={21} />
-        <Data nama='toni' alamat='mejasem' usia={21} />
-      </View>
-    )
-  }
-}
-
-
-
-export default index
-
+export default index;

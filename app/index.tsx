@@ -90,7 +90,11 @@ export default class index extends Component {
 
 const style = StyleSheet.create({
     area: {
-        flexDirection : 'column'
+        flexDirection : 'column',
+        justifyContent : 'space-between',
+        flex : 1,
+        alignItems : 'flex-start'
+        
     },
     kotakMerah: {
         width: 100,

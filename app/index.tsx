@@ -159,33 +159,70 @@
 
 // ------------------ Cara menangani state pada React Native
 
-import React, { Component } from "react";
+// import React, { Component } from "react";
+// import { Text, View, StyleSheet, Button } from "react-native";
+
+// export class index extends Component {
+//     state = {
+//         nama: "azmi",
+//         kelas: "Sistem Informasi Visual",
+//     };
+
+//     handleButton = () => {
+//         this.setState({nama : "jasson"})
+//     }
+//     render() {
+//         return (
+//             <View style={style.viewStyle}>
+//                 <Text style={style.textStyle}>
+//                     {" "}
+//                     Hallo nama saya : {this.state.nama}{" "}
+//                 </Text>
+//                 <Text style={style.textStyle}>
+//                     {" "}
+//                     Saya kelas : {this.state.kelas}{" "}
+//                 </Text>
+//                 <Button onPress={this.handleButton} title="Ubah" />
+//             </View>
+//         );
+//     }
+// }
+
+// const style = StyleSheet.create({
+//     textStyle: {
+//         color: "red",
+//         fontSize: 20,
+//         fontWeight: "bold",
+//     },
+//     viewStyle: {
+//         flexDirection: "column",
+//         backgroundColor: "green",
+//         justifyContent: "center",
+//         flex: 1,
+//         alignItems: "center",
+//     },
+
+// });
+
+// export default index;
+
+// -------------------- state pada functional komponen
+
 import { Text, View, StyleSheet, Button } from "react-native";
+import React, { useState } from "react";
 
-export class index extends Component {
-    state = {
-        nama: "azmi",
-        kelas: "Sistem Informasi Visual",
+export default function index() {
+    const [nama, setNama] = useState("jasson");
+
+    const handleButton = () => {
+        setNama("azmi");
     };
-
-    handleButton = () => {
-        this.setState({nama : "jasson"})
-    }
-    render() {
-        return (
-            <View style={style.viewStyle}>
-                <Text style={style.textStyle}>
-                    {" "}
-                    Hallo nama saya : {this.state.nama}{" "}
-                </Text>
-                <Text style={style.textStyle}>
-                    {" "}
-                    Saya kelas : {this.state.kelas}{" "}
-                </Text>
-                <Button onPress={this.handleButton} title="Ubah" />
-            </View>
-        );
-    }
+    return (
+        <View style={style.viewStyle}>
+            <Text style={style.textStyle}>{nama}</Text>
+            <Button onPress={handleButton} title="ubah" />
+        </View>
+    );
 }
 
 const style = StyleSheet.create({
@@ -201,7 +238,4 @@ const style = StyleSheet.create({
         flex: 1,
         alignItems: "center",
     },
-   
 });
-
-export default index;

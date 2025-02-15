@@ -94,7 +94,7 @@
 //         justifyContent : 'space-between',
 //         flex : 1,
 //         alignItems : 'flex-start'
-        
+
 //     },
 //     kotakMerah: {
 //         width: 100,
@@ -114,46 +114,94 @@
 // });
 
 // --------------- Menampilkan list dan penggunaan state
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+// import React, { Component } from 'react'
+// import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+
+// export class index extends Component {
+//     state = {
+//         namaHewan : [
+//             {id : 0, nama : 'Kucing'},
+//             {id : 1, nama : 'Ikan'},
+//             {id : 2, nama : 'Kambing'},
+//             {id : 3, nama : 'Gajah'}
+//         ]
+//     }
+
+//     klik = (namaHewan : string) => {
+//         alert(`Kamu pilih ${namaHewan}`)
+//     }
+//   render() {
+//     return (
+//       <View>
+//         {
+//             this.state.namaHewan.map((item, index) => (
+//                 <TouchableOpacity onPress={() => this.klik(item.nama)}>
+//                     <Text style= {style.textNamaHewan} key={index}>{item.nama}</Text>
+//                 </TouchableOpacity>
+//             ))
+//         }
+//       </View>
+//     )
+//   }
+// }
+
+// const style = StyleSheet.create({
+//     textNamaHewan : {
+//         fontSize : 30,
+//         fontWeight : 'bold',
+//         backgroundColor : 'green',
+//         marginBottom : 10,
+//         color : 'white'
+//     }
+// })
+
+// export default index
+
+// ------------------ Cara menangani state pada React Native
+
+import React, { Component } from "react";
+import { Text, View, StyleSheet, Button } from "react-native";
 
 export class index extends Component {
     state = {
-        namaHewan : [
-            {id : 0, nama : 'Kucing'},
-            {id : 1, nama : 'Ikan'},
-            {id : 2, nama : 'Kambing'},
-            {id : 3, nama : 'Gajah'}
-        ]
-    }
+        nama: "azmi",
+        kelas: "Sistem Informasi Visual",
+    };
 
-    klik = (namaHewan : string) => {
-        alert(`Kamu pilih ${namaHewan}`)
+    handleButton = () => {
+        this.setState({nama : "jasson"})
     }
-  render() {
-    return (
-      <View>
-        {
-            this.state.namaHewan.map((item, index) => (
-                <TouchableOpacity onPress={() => this.klik(item.nama)}>
-                    <Text style= {style.textNamaHewan} key={index}>{item.nama}</Text>
-                </TouchableOpacity>
-            ))
-        }
-      </View>
-    )
-  }
+    render() {
+        return (
+            <View style={style.viewStyle}>
+                <Text style={style.textStyle}>
+                    {" "}
+                    Hallo nama saya : {this.state.nama}{" "}
+                </Text>
+                <Text style={style.textStyle}>
+                    {" "}
+                    Saya kelas : {this.state.kelas}{" "}
+                </Text>
+                <Button onPress={this.handleButton} title="Ubah" />
+            </View>
+        );
+    }
 }
 
 const style = StyleSheet.create({
-    textNamaHewan : {
-        fontSize : 30,
-        fontWeight : 'bold',
-        backgroundColor : 'green',
-        marginBottom : 10,
-        color : 'white'
-    }
-})
+    textStyle: {
+        color: "red",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    viewStyle: {
+        flexDirection: "column",
+        backgroundColor: "green",
+        justifyContent: "center",
+        flex: 1,
+        alignItems: "center",
+    },
+   
+});
 
-
-export default index
+export default index;

@@ -786,38 +786,92 @@
 
 // ------------ API Toast untuk menampilan flash informasi
 
-import React from "react";
-import {
-    Text,
-    TouchableOpacity,
-    View,
-    StyleSheet,
-    ToastAndroid,
-} from "react-native";
+// import React from "react";
+// import {
+//     Text,
+//     TouchableOpacity,
+//     View,
+//     StyleSheet,
+//     ToastAndroid,
+// } from "react-native";
+
+// const index = () => {
+//     const toast1 = () => {
+//         ToastAndroid.show("Pesanan diproses", ToastAndroid.LONG);
+//     };
+//     return (
+//         <View style={styles.area}>
+//             <TouchableOpacity
+//                 onPress={toast1}
+//                 style={{
+//                     backgroundColor: "#ff1",
+//                     padding: 10,
+//                     borderRadius: 10,
+//                 }}>
+//                 <Text>Pesan makanan</Text>
+//             </TouchableOpacity>
+//         </View>
+//     );
+// };
+
+// const styles = StyleSheet.create({
+//     area: {
+//         margin: "auto",
+//     },
+// });
+
+// export default index;
+
+// -------------- ImageBackground
+
+// import React from "react";
+// import { ImageBackground, Text, View } from "react-native";
+
+// const index = () => {
+//     const source = {
+//         uri: "https://uinsgd.ac.id/wp-content/uploads/2024/01/2-Grind-Joe-Coffee.jpg",
+//     };
+//     return (
+//         <View style={{ flex: 1, justifyContent: "center" }}>
+//             <ImageBackground
+//                 source={source}
+//                 style={{ flex: 1, justifyContent: "center" }}>
+//                 <Text>Login Page</Text>
+//             </ImageBackground>
+//         </View>
+//     );
+// };
+
+// export default index;
+
+// -------------------- Api BackHandler
+
+import React, { useEffect } from 'react'
+import { Alert, BackHandler, Text, View } from 'react-native'
+
 
 const index = () => {
-    const toast1 = () => {
-        ToastAndroid.show("Pesanan diproses", ToastAndroid.LONG);
-    };
-    return (
-        <View style={styles.area}>
-            <TouchableOpacity
-                onPress={toast1}
-                style={{
-                    backgroundColor: "#ff1",
-                    padding: 10,
-                    borderRadius: 10,
-                }}>
-                <Text>Pesan makanan</Text>
-            </TouchableOpacity>
-        </View>
-    );
-};
 
-const styles = StyleSheet.create({
-    area: {
-        margin: "auto",
-    },
-});
+    useEffect(() => {
+        const aksiTombol = () => {
+            Alert.alert("Warning", "Yakin ingin kembali ?", [
+                { text : 'Batal', onPress : () => null, style : "cancel"},
+                {text : 'Ya', onPress : () => BackHandler.exitApp()}
+            ]);
+            return true
+        }
 
-export default index;
+        const handlerBack = BackHandler.addEventListener(
+            "hardwareBackPress", aksiTombol
+        );
+        return () => handlerBack.remove()
+    })
+  return (
+    <View>
+        <Text>hallo</Text>
+    </View>
+  )
+}
+
+export default index
+

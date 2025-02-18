@@ -684,45 +684,105 @@
 
 // export default index
 
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Modal, Button } from "react-native";
+// --------------- Modal element
 
-const index = () => {
-    const [visibleModal, setVisibleModal] = useState(false)
+// import React, { useState } from "react";
+// import { Text, View, StyleSheet, Modal, Button } from "react-native";
 
-    return (
-        <View style={styles.area}>
-            <Text>testting modal</Text>
-            <Button onPress={() => setVisibleModal(true)} title="See Promo" />
-            <Modal 
-                visible = {visibleModal}
-                animationType="slide"
-            >
-                <View style={styles.modal}>
-                    <Text>Promo akhir tahun</Text>
-                    <Button title="Okey" onPress={() => setVisibleModal(false)}/>
-                </View>
-            </Modal>
-        </View>
-    );
-};
+// const index = () => {
+//     const [visibleModal, setVisibleModal] = useState(false)
 
-const styles = StyleSheet.create({
-    area: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    modal: {
-        width: "70%",
-        height: "50%",
-        alignItems: "center",
-        justifyContent : "center",
-        margin : "auto",
-        backgroundColor: "#1111",
-        borderRadius : 10,
-        gap : 10
-    },
-});
+//     return (
+//         <View style={styles.area}>
+//             <Text>testting modal</Text>
+//             <Button onPress={() => setVisibleModal(true)} title="See Promo" />
+//             <Modal
+//                 visible = {visibleModal}
+//                 animationType="slide"
+//             >
+//                 <View style={styles.modal}>
+//                     <Text>Promo akhir tahun</Text>
+//                     <Button title="Okey" onPress={() => setVisibleModal(false)}/>
+//                 </View>
+//             </Modal>
+//         </View>
+//     );
+// };
 
-export default index;
+// const styles = StyleSheet.create({
+//     area: {
+//         flex: 1,
+//         alignItems: "center",
+//         justifyContent: "center",
+//     },
+//     modal: {
+//         width: "70%",
+//         height: "50%",
+//         alignItems: "center",
+//         justifyContent : "center",
+//         margin : "auto",
+//         backgroundColor: "#1111",
+//         borderRadius : 10,
+//         gap : 10
+//     },
+// });
+
+// export default index;
+
+// ---------------- Linking API
+
+// import React from 'react'
+// import { Button, Linking, Text, View, StyleSheet } from 'react-native'
+
+// const index = () => {
+//   return (
+//     <View style={styles.area}>
+//         <Button onPress={() => Linking.openURL("mailto:azmitheusos333@gmail.com")} title='Go To facebook'/>
+//     </View>
+//   )
+// }
+
+// const styles = StyleSheet.create({
+//   area : {
+//     margin : "auto",
+//     justifyContent : "center",
+//   }
+// })
+
+// export default index
+
+// ---------------- API Alert
+
+// import React from "react";
+// import { Text, TouchableOpacity, View, Alert, StyleSheet } from "react-native";
+
+// const index = () => {
+//     const alert1 = () => {
+//         Alert.alert("ini judul alert", "ini adalah isi alert", [
+//             {
+//                 text: "Cancel",
+//                 onPress: () => console.log("cancel press"),
+//                 style: "cancel",
+//             },
+//         ]);
+//     };
+//     return (
+//         <View style={styles.area}>
+//             <TouchableOpacity style={{ backgroundColor : "#ff1111", padding : 10, borderRadius : 10  }} onPressOut={() => alert1()}>
+//                 <Text>Tampilkan</Text>
+//             </TouchableOpacity>
+//         </View>
+//     );
+// };
+
+// const styles = StyleSheet.create({
+//     area: {
+//         margin: "auto",
+//         justifyContent: "center",
+//     },
+// });
+
+// export default index;
+
+
+// ------------

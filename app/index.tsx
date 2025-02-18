@@ -438,10 +438,9 @@
 //     NavigationContainer,
 //     NavigationIndependentTree,
 //     useNavigation,
-//     createStaticNavigation
+//     createStaticNavigation,
 // } from "@react-navigation/native";
 // import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 
 // function HomeScreen() {
 //     const navigation = useNavigation();
@@ -449,12 +448,13 @@
 //         <View
 //             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 //             <Text>Home Screen</Text>
-//             <Button onPress={() => navigation.navigate('Detail')} title="Goto Detail"/>
+//             <Button
+//                 onPress={() => navigation.navigate("Detail")}
+//                 title="Goto Detail"
+//             />
 //         </View>
 //     );
 // }
-
-
 
 // function DetailScreen() {
 //     return (
@@ -485,3 +485,64 @@
 //         </NavigationIndependentTree>
 //     );
 // }
+
+// -------------- mengirimkan data dari halaman sebelumnya
+
+import * as React from "react";
+import { View, Text, Button } from "react-native";
+import {
+    NavigationContainer,
+    NavigationIndependentTree,
+    useNavigation,
+    createStaticNavigation,
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+function HomeScreen() {
+    const navigation = useNavigation();
+    return (
+        <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Text>Home Screen</Text>
+            <Button
+                onPress={() =>
+                    navigation.navigate("Detail", {
+                        info1: "Saya dari halaman depan",
+                    })
+                }
+                title="Goto Detail"
+            />
+        </View>
+    );
+}
+
+function DetailScreen({ route }) {
+    return (
+        <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Text>DetailScreen</Text>
+            <Text>info1 : {route.params.info1}</Text>
+        </View>
+    );
+}
+
+const Stack = createNativeStackNavigator();
+
+function RootStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Detail" component={DetailScreen} />
+        </Stack.Navigator>
+    );
+}
+
+export default function App() {
+    return (
+        <NavigationIndependentTree>
+            <NavigationContainer>
+                <RootStack />
+            </NavigationContainer>
+        </NavigationIndependentTree>
+    );
+}

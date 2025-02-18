@@ -651,37 +651,78 @@
 
 // export default index;
 
-
 // ---------------- Switch React Natives Elements
 
-import React, { useState } from 'react'
-import { Text, View, Switch, StyleSheet } from 'react-native'
+// import React, { useState } from 'react'
+// import { Text, View, Switch, StyleSheet } from 'react-native'
 
-function index() {
-    const [nilaiSwitch, setNilaiSwitch] = useState(false)
-    
-    const handleSwitch = (value : boolean) => {
-        setNilaiSwitch(value)
-    }
-  return (
-    <View style={style.area}>
-        <Text>Nilai : {nilaiSwitch ? 'Tombol aktif' : 'Tombol mati'}</Text>
-        <Switch 
-            onValueChange={(value) => handleSwitch(value)}
-            value={nilaiSwitch}
-        />
+// function index() {
+//     const [nilaiSwitch, setNilaiSwitch] = useState(false)
 
-        
-    </View>
-  )
-}
+//     const handleSwitch = (value : boolean) => {
+//         setNilaiSwitch(value)
+//     }
+//   return (
+//     <View style={style.area}>
+//         <Text>Nilai : {nilaiSwitch ? 'Tombol aktif' : 'Tombol mati'}</Text>
+//         <Switch
+//             onValueChange={(value) => handleSwitch(value)}
+//             value={nilaiSwitch}
+//         />
 
-const style = StyleSheet.create({
-    area : {
-        flex : 1,
-        alignItems : "center",
-        justifyContent : "center"
-    }
-})
+//     </View>
+//   )
+// }
 
-export default index
+// const style = StyleSheet.create({
+//     area : {
+//         flex : 1,
+//         alignItems : "center",
+//         justifyContent : "center"
+//     }
+// })
+
+// export default index
+
+import React, { useState } from "react";
+import { Text, View, StyleSheet, Modal, Button } from "react-native";
+
+const index = () => {
+    const [visibleModal, setVisibleModal] = useState(false)
+
+    return (
+        <View style={styles.area}>
+            <Text>testting modal</Text>
+            <Button onPress={() => setVisibleModal(true)} title="See Promo" />
+            <Modal 
+                visible = {visibleModal}
+                animationType="slide"
+            >
+                <View style={styles.modal}>
+                    <Text>Promo akhir tahun</Text>
+                    <Button title="Okey" onPress={() => setVisibleModal(false)}/>
+                </View>
+            </Modal>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    area: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    modal: {
+        width: "70%",
+        height: "50%",
+        alignItems: "center",
+        justifyContent : "center",
+        margin : "auto",
+        backgroundColor: "#1111",
+        borderRadius : 10,
+        gap : 10
+    },
+});
+
+export default index;

@@ -784,5 +784,40 @@
 
 // export default index;
 
+// ------------ API Toast untuk menampilan flash informasi
 
-// ------------
+import React from "react";
+import {
+    Text,
+    TouchableOpacity,
+    View,
+    StyleSheet,
+    ToastAndroid,
+} from "react-native";
+
+const index = () => {
+    const toast1 = () => {
+        ToastAndroid.show("Pesanan diproses", ToastAndroid.LONG);
+    };
+    return (
+        <View style={styles.area}>
+            <TouchableOpacity
+                onPress={toast1}
+                style={{
+                    backgroundColor: "#ff1",
+                    padding: 10,
+                    borderRadius: 10,
+                }}>
+                <Text>Pesan makanan</Text>
+            </TouchableOpacity>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    area: {
+        margin: "auto",
+    },
+});
+
+export default index;

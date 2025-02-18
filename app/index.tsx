@@ -564,36 +564,84 @@
 // }
 
 // --------------- ActivityIndicator untuk menampilkan proses loading di react Native
+// import React, { useState } from "react";
+// import {
+//     Text,
+//     View,
+//     ActivityIndicator,
+//     StyleSheet,
+//     Button,
+// } from "react-native";
+
+// const index = () => {
+//     const [loading, setLoading] = useState(false);
+//     const [titleButton, setTitleButton] = useState("Jalankan proses");
+
+//     const handleButton = () => {
+//         if (loading === false) {
+//             setLoading(true);
+//             setTitleButton("Stop Process")
+//         } else {
+//             setLoading(false);
+//             setTitleButton("Jalankan Process");
+//         }
+//     };
+//     return (
+//         <View style={style.area}>
+//             <ActivityIndicator
+//                 animating={loading}
+//                 color="#ff0000"
+//                 size={"large"}
+//             />
+//             <Button onPress={handleButton} title={titleButton} />
+//         </View>
+//     );
+// };
+
+// const style = StyleSheet.create({
+//     area: {
+//         flex: 1,
+//         alignItems: "center",
+//         justifyContent: "center",
+//     },
+// });
+
+// export default index;
+
+// ------------ react native picker = select pada html
+
+import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 import {
-    Text,
     View,
-    ActivityIndicator,
     StyleSheet,
-    Button,
+    Text,
+    Alert,
 } from "react-native";
 
 const index = () => {
-    const [loading, setLoading] = useState(false);
-    const [titleButton, setTitleButton] = useState("Jalankan proses");
+    const [value, setValue] = useState('')
+    const handlePicker = (label : string) => {
+        setValue(label)
+        alert('kamu memilih hari '+ label)
+        // setTimeout(() => {
+        //     alert(`Kamu memilih hari ${label}`)
+        // }, 500)
+    }
 
-    const handleButton = () => {
-        if (loading === false) {
-            setLoading(true);
-            setTitleButton("Stop Process")
-        } else {
-            setLoading(false);
-            setTitleButton("Jalankan Process");
-        }
-    };
     return (
         <View style={style.area}>
-            <ActivityIndicator
-                animating={loading}
-                color="#ff0000"
-                size={"large"}
-            />
-            <Button onPress={handleButton} title={titleButton} />
+            <Picker
+                style={{ width:'100%' }}
+                enabled
+                selectedValue={value}
+                onValueChange={(label, index) => handlePicker(label)}
+            >
+                <Picker.Item label="Senin" value="senin" />
+                <Picker.Item label="Selasa" value="selasa" />
+                <Picker.Item label="Rabu" value="rabu" />
+            </Picker>
+            <Text>{value}</Text>
         </View>
     );
 };

@@ -610,48 +610,78 @@
 
 // ------------ react native picker = select pada html
 
-import { Picker } from "@react-native-picker/picker";
-import React, { useState } from "react";
-import {
-    View,
-    StyleSheet,
-    Text,
-    Alert,
-} from "react-native";
+// import { Picker } from "@react-native-picker/picker";
+// import React, { useState } from "react";
+// import { View, StyleSheet, Text, Alert } from "react-native";
+// import { blue } from "react-native-reanimated/lib/typescript/Colors";
 
-const index = () => {
-    const [value, setValue] = useState('')
-    const handlePicker = (label : string) => {
-        setValue(label)
-        alert('kamu memilih hari '+ label)
-        // setTimeout(() => {
-        //     alert(`Kamu memilih hari ${label}`)
-        // }, 500)
+// const index = () => {
+//     const [value, setValue] = useState("");
+//     const handlePicker = (label: string) => {
+//         setValue(label);
+//         alert("kamu memilih hari " + label);
+//         // setTimeout(() => {
+//         //     alert(`Kamu memilih hari ${label}`)
+//         // }, 500)
+//     };
+
+//     return (
+//         <View style={style.area}>
+//             <Picker
+//                 style={{ width: "100%" }}
+//                 enabled
+//                 selectedValue={value}
+//                 onValueChange={(label, index) => handlePicker(label)}>
+//                 <Picker.Item label="Senin" value="senin" />
+//                 <Picker.Item label="Selasa" value="selasa" />
+//                 <Picker.Item label="Rabu" value="rabu" />
+//             </Picker>
+//             <Text>{value}</Text>
+//         </View>
+//     );
+// };
+
+// const style = StyleSheet.create({
+//     area: {
+//         flex: 1,
+//         alignItems: "center",
+//         justifyContent: "center",
+//     },
+// });
+
+// export default index;
+
+
+// ---------------- Switch React Natives Elements
+
+import React, { useState } from 'react'
+import { Text, View, Switch, StyleSheet } from 'react-native'
+
+function index() {
+    const [nilaiSwitch, setNilaiSwitch] = useState(false)
+    
+    const handleSwitch = (value : boolean) => {
+        setNilaiSwitch(value)
     }
+  return (
+    <View style={style.area}>
+        <Text>Nilai : {nilaiSwitch ? 'Tombol aktif' : 'Tombol mati'}</Text>
+        <Switch 
+            onValueChange={(value) => handleSwitch(value)}
+            value={nilaiSwitch}
+        />
 
-    return (
-        <View style={style.area}>
-            <Picker
-                style={{ width:'100%' }}
-                enabled
-                selectedValue={value}
-                onValueChange={(label, index) => handlePicker(label)}
-            >
-                <Picker.Item label="Senin" value="senin" />
-                <Picker.Item label="Selasa" value="selasa" />
-                <Picker.Item label="Rabu" value="rabu" />
-            </Picker>
-            <Text>{value}</Text>
-        </View>
-    );
-};
+        
+    </View>
+  )
+}
 
 const style = StyleSheet.create({
-    area: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
+    area : {
+        flex : 1,
+        alignItems : "center",
+        justifyContent : "center"
+    }
+})
 
-export default index;
+export default index

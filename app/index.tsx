@@ -846,32 +846,30 @@
 
 // -------------------- Api BackHandler
 
-import React, { useEffect } from 'react'
-import { Alert, BackHandler, Text, View } from 'react-native'
+// import React, { useEffect } from "react";
+// import { Alert, BackHandler, Text, View } from "react-native";
 
+// const index = () => {
+//     useEffect(() => {
+//         const aksiTombol = () => {
+//             Alert.alert("Warning", "Yakin ingin kembali ?", [
+//                 { text: "Batal", onPress: () => null, style: "cancel" },
+//                 { text: "Ya", onPress: () => BackHandler.exitApp() },
+//             ]);
+//             return true;
+//         };
 
-const index = () => {
+//         const handlerBack = BackHandler.addEventListener(
+//             "hardwareBackPress",
+//             aksiTombol
+//         );
+//         return () => handlerBack.remove();
+//     });
+//     return (
+//         <View>
+//             <Text>hallo</Text>
+//         </View>
+//     );
+// };
 
-    useEffect(() => {
-        const aksiTombol = () => {
-            Alert.alert("Warning", "Yakin ingin kembali ?", [
-                { text : 'Batal', onPress : () => null, style : "cancel"},
-                {text : 'Ya', onPress : () => BackHandler.exitApp()}
-            ]);
-            return true
-        }
-
-        const handlerBack = BackHandler.addEventListener(
-            "hardwareBackPress", aksiTombol
-        );
-        return () => handlerBack.remove()
-    })
-  return (
-    <View>
-        <Text>hallo</Text>
-    </View>
-  )
-}
-
-export default index
-
+// export default index;
